@@ -4,7 +4,7 @@
 <!-- 🐨 Create (in HTML) a <body> with a <div> with the id of "root" -->
     <html>
         <body>
-            <!-- <div id="root" ></div> -->
+            <div id="root" ></div>
         </body>
     </html>
 
@@ -13,7 +13,9 @@
     const jsElement = document.createElement('div')
     jsElement.textContent = 'Hello from jsElement'
     jsElement.className = 'container'
-    document.body.appendChild(jsElement)
+    // root.appendChild(jsElement)      // works!
+    const rootElement = document.getElementById('root')
+    rootElement.appendChild(jsElement)
 </script>
 
 <!-- These next instructions are to be written in JavaScript in the <script> tag -->
@@ -26,3 +28,17 @@
 <!-- 🐨 Append the div to the root div using `append` -->
 <!--   💰 document.getElementById('root') -->
 <!--   📜 https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append -->
+
+
+
+    <html>
+        <body>
+        </body>
+    </html>
+
+<script type="module">
+    const jsExtraCreditElement = document.createElement('div')
+    jsExtraCreditElement.textContent = 'Hello from jsExtraCreditElement'
+    jsExtraCreditElement.className = 'container'
+    document.body.appendChild(jsExtraCreditElement)
+</script>
