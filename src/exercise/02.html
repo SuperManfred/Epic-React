@@ -17,14 +17,19 @@
     // // const element = document.createElement('div')   // old example code
     // // element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
     // // element.className = 'container' // 💰 in React, this is also called the "className" prop
-    const elementType = 'div'   
+    console.log("-------------") 
+    const elementType = 'div'
+    console.log(elementType) 
     const elementProps = {className: 'container', children: 'Hello from reactElement elementProps'}
+    // console.log(elementProps)
     const reactElement = React.createElement(elementType, elementProps)
+    console.log(elementProps.children)
+    console.log(elementProps.className)
 
     // // This is similar to ReactDOM.render
     // // rootElement.append(element)
     ReactDOM.render(reactElement, rootElement)
-
+    console.log(rootElement)
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
     // 💰 The example in the markdown file should be a good hint for you.
