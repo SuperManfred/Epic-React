@@ -19,20 +19,43 @@
     // // element.className = 'container' // 💰 in React, this is also called the "className" prop
     console.log("-------------") 
     const elementType = 'div'
-    console.log("console.log elementType: ", elementType) 
+    console.log("elementType: ", elementType) 
+
     const elementProps = {className: 'container', children: 'Hello from reactElement elementProps'}
     // console.log(elementProps)
     const reactElement = React.createElement(elementType, elementProps)
-    console.log("console.log elementProps: ", elementProps)
-    console.log("console.log elementProps.children: ", elementProps.children)
-    console.log("console.log elementProps.className: ", elementProps.className)
+    console.log("elementProps: ", elementProps)
+    console.log("elementProps.children: ", elementProps.children)
+    console.log("elementProps.className: ", elementProps.className)
 
     // // This is similar to ReactDOM.render
     // // rootElement.append(element)
     ReactDOM.render(reactElement, rootElement)
-    console.log("console.log rootElement: ", rootElement)
+    console.log("rootElement: ", rootElement)
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
     // 💰 The example in the markdown file should be a good hint for you.
+
+    // Extra Credit
+    // console.log("----------------")
+    // const rootElement = document.getElementById('root')
+
+    // const child1 = React.createElement('span', {}, 'child1')
+    // const child2 = React.createElement('span', {}, 'child2')
+
+    // // const reactElement = React.createElement(elementType, elementProps, children: ["child1",childn])
+    // const reactElement = React.createElement('div', {
+    //   className: 'container'
+    // },
+    // [
+    //   child1,
+    //   ' ', 
+    //   child2
+    // ])
+    // console.log("----------------")
+    // console.log(reactElement.child1)
+    // console.log(reactElement)
+    // ReactDOM.render(reactElement,rootElement)
+
   </script>
 </body>
