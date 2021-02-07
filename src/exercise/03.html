@@ -29,8 +29,8 @@
     const className = 'container'
     const props = {children, className}
     const element = <div 
-    // {...props} // works!
-    className={props.className} children={props.children} // works!
+    {...props} // works!
+    // className={props.className} children={props.children} // works!
     // className={className} children={children} // works!
 
     /> // how do I apply props to this div?
