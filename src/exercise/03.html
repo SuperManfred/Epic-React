@@ -18,11 +18,22 @@
     //   children: 'Hello World',
     // })
     
+    // main lesson + Extra Credit 1. 
+    // const className = 'container'
+    // const greeting = 'Hello'
+    // const audience = 'World'
+    // const statement = `${greeting} ${audience}`
+    // const element = <div className={className}>{greeting} {audience} and {statement} </div>
+
+    const children = 'Hello World'
     const className = 'container'
-    const greeting = 'Hello'
-    const audience = 'World'
-    const statement = `${greeting} ${audience}`
-    const element = <div className={className}>{greeting} {audience} and {statement} </div>
+    const props = {children, className}
+    const element = <div 
+    // {...props} // works!
+    className={props.className} children={props.children} // works!
+    // className={className} children={children} // works!
+
+    /> // how do I apply props to this div?
 
     // 💰 there are a few subtle differences between JSX and HTML. One such
     // difference is how you apply a class to an element in JSX is by using
@@ -31,5 +42,7 @@
     // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
 
     ReactDOM.render(element, document.getElementById('root'))
+
+
   </script>
 </body>
