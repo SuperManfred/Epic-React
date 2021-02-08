@@ -6,6 +6,7 @@
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
   console.log("------------------ recompiled ------------------")
     // 🐨 Make a function called `message` which returns the JSX we want to share
@@ -42,7 +43,6 @@
     //   </div>
     // )
 
-    // 4.3 using propTypes for runtime validation
     function Message({subject, greeting}) {
       return (
         <div className="message">
@@ -51,6 +51,7 @@
       )
     }
 
+    // 4.3 using propTypes for _development_ runtime validation // in production validation types are ignored
     const PropTypes = {
       string(props, propName, componentName) {
         const type = typeof props[propName]
@@ -58,15 +59,11 @@
           return new Error(`the component: "${componentName}" with propName: "${propName}" needs to be of type: "string" but was passed a type: "${type}"`)   
           }
       },
-      // notEmptyString(props, propName, componentName) {
-      //   const messageField = 
-      // }
     }
     // what is to be validated:
     Message.propTypes = {
-      subject: PropTypes.string,
-      greeting: PropTypes.string,
-      
+      subject: PropTypes.string, // subject must be a string
+      greeting: PropTypes.string // greeting must be a string
     }
     
     console.log(Error)
