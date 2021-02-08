@@ -7,20 +7,42 @@
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
   <script type="text/babel">
+  console.log("------------------ recompiled ------------------")
     // 🐨 Make a function called `message` which returns the JSX we want to share
-
-    function message({children}) {  // with params children
+    // 4.0  function called `message` rns jsx with params className and children
+    function Message({children}) {  
       return <div className="message">{children}</div>  // return a div with props className message and children
     }
 
     // 🐨 use that function in place of the divs below with:
     // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
+    
+    // 4.0 invoke message() function with explicit children key: value
+    // const element = ( 
+    //   <div className="container"> 
+    //     {message({children: 'Hello World'})}
+    //     {message({children: 'Goodbye World'})}
+    //   </div>
+    // )
+    
+    // 4.1 use React.createElement pass in message(children) function as type
+    // const element = React.createElement('div', {}, message({children: 'Hello World'}), message({children: 'Goodbye World'})) // my answer
+    // const element = (
+    //   <div className="container">
+    //     {React.createElement(Message, {children: "Hello World"})}
+    //     {React.createElement(Message, {children: "Goodbye World"})}
+    //   </div>
+    // )
+    
+    // 4.2 capitalise Message function so babel can compile/interpolate right into the type of this UI component
     const element = (
       <div className="container">
-        // invoke message() function with explicit children key with a value
-        {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
+        <Message>Hello World</Message>
+        <Message>Goodbye World</Message>
       </div>
     )
+
+    console.log(element)
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
