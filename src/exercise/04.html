@@ -51,31 +51,43 @@
       )
     }
 
-    // 4.3 using propTypes for _development_ runtime validation // in production validation types are ignored
-    const PropTypes = {
-      string(props, propName, componentName) {
-        const type = typeof props[propName]
-        if (type !== 'string') {
-          return new Error(`the component: "${componentName}" with propName: "${propName}" needs to be of type: "string" but was passed a type: "${type}"`)   
-          }
-      },
-    }
-    // what is to be validated:
+    // // 4.3 using propTypes for _development_ runtime validation // in production validation types are ignored
+    // const PropTypes = {
+    //   string(props, propName, componentName) {
+    //     const type = typeof props[propName]
+    //     if (type !== 'string') {
+    //       return new Error(`the component: "${componentName}" with propName: "${propName}" needs to be of type: "string" but was passed a type: "${type}"`)   
+    //       }
+    //   },
+    // }
+    // // what is to be validated:
+    // Message.propTypes = {
+    //   subject: PropTypes.string, // subject must be a string
+    //   greeting: PropTypes.string // greeting must be a string
+    // }
+
+    // 4.4 using React's prop-types package 
     Message.propTypes = {
-      subject: PropTypes.string, // subject must be a string
-      greeting: PropTypes.string // greeting must be a string
+      subject: PropTypes.string.isRequired, // subject must be a string AND is required!
+      greeting: PropTypes.string.isRequired // greeting must be a string AND is required!
     }
     
     console.log(Error)
     
+    // const element = (
+    //   <div className="container" >
+    //     <Message greeting="Hello" subject="World" />
+    //     <Message greeting="Goodbye" subject="World" />
+    //   </div>
+    // )
+    
+    // 4.5 Use <React.Fragment> de-nest nodes/children </React.Fragment>
     const element = (
-      <div className="container" >
+      <>
         <Message greeting="Hello" subject="World" />
         <Message greeting="Goodbye" subject="World" />
-      </div>
+      </>
     )
-
-
 
     console.log(element)
 
