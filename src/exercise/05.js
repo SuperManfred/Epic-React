@@ -12,16 +12,42 @@ import '../box-styles.css'
 
 // 🐨 add a style prop to each of them as well so their background color
 // matches what the text says it should be as well as `fontStyle: 'italic'`
-const smallBox = <div>small lightblue box</div>
-const mediumBox = <div>medium pink box</div>
-const largeBox = <div>large orange box</div>
+
+// 05 create variables with styles to be assigned to objects/elements in App
+// const smallBox = <div className="box box--small" style={{backgroundColor: 'lightblue', fontStyle: 'italic'}} >small lightblue box</div>
+// const mediumBox = <div className="box box--medium" style={{backgroundColor: 'pink', fontStyle: 'italic'}}>medium pink box</div>
+// const largeBox = <div className="box box--large" style={{backgroundColor: 'orange', fontStyle: 'italic'}} >large orange box</div>
+
+// function App() {
+//   return (
+//     <div>
+//       {smallBox}
+//       {mediumBox}
+//       {largeBox}
+//     </div>
+//   )
+// }
+
+// 5.1 pass object containing props as params in component Box
+function Box({style, size, className = '', ...otherProps}) {
+  const sizeClassName = size ? `box--${size}` : ''
+  return(
+    <div 
+      style={{fontStyle: 'italic', ...style}}
+      className={`box ${className} ${sizeClassName}`}
+      {...otherProps}
+    >
+    </div>
+  )
+}
 
 function App() {
   return (
     <div>
-      {smallBox}
-      {mediumBox}
-      {largeBox}
+      <Box size="small" style={{backgroundColor: 'lightblue'}} >small lightblue box</Box>
+      <Box size="medium" style={{backgroundColor: 'pink'}} >medium pink box</Box>
+      <Box size="large" style={{backgroundColor: 'orange'}} >large orange box</Box>
+
     </div>
   )
 }
